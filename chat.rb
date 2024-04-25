@@ -1,5 +1,3 @@
-pp "howdy"
-
 require "openai"
 
 key = ENV.fetch("OPENAI_API_KEY")
@@ -23,3 +21,9 @@ raw_response = client.chat(
   }
 )
 pp raw_response
+
+ai_response = raw_response.fetch("choices").at(0).fetch("message")
+
+list_of_messages.push(ai_response)
+
+pp client
